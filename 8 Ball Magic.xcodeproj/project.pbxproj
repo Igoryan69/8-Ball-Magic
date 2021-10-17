@@ -56,15 +56,48 @@
 		DE839FFB271C099300F4A5B9 /* 8 Ball Magic */ = {
 			isa = PBXGroup;
 			children = (
-				DE839FFC271C099300F4A5B9 /* AppDelegate.swift */,
-				DE839FFE271C099300F4A5B9 /* SceneDelegate.swift */,
-				DE83A000271C099300F4A5B9 /* ViewController.swift */,
-				DE83A002271C099300F4A5B9 /* Main.storyboard */,
-				DE83A005271C09A700F4A5B9 /* Assets.xcassets */,
-				DE83A007271C09A700F4A5B9 /* LaunchScreen.storyboard */,
+				DE83A013271C0ABA00F4A5B9 /* Model */,
+				DE83A011271C0A6D00F4A5B9 /* View */,
+				DE83A017271C0B5300F4A5B9 /* Controllers */,
 				DE83A00A271C09A700F4A5B9 /* Info.plist */,
+				DE83A019271C0B8100F4A5B9 /* Supporting files */,
 			);
 			path = "8 Ball Magic";
+			sourceTree = "<group>";
+		};
+		DE83A011271C0A6D00F4A5B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE83A002271C099300F4A5B9 /* Main.storyboard */,
+			);
+			name = View;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		DE83A013271C0ABA00F4A5B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE83A017271C0B5300F4A5B9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DE83A000271C099300F4A5B9 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DE83A019271C0B8100F4A5B9 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				DE839FFC271C099300F4A5B9 /* AppDelegate.swift */,
+				DE839FFE271C099300F4A5B9 /* SceneDelegate.swift */,
+				DE83A005271C09A700F4A5B9 /* Assets.xcassets */,
+				DE83A007271C09A700F4A5B9 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7B59Q46R46;
 				INFOPLIST_FILE = "8 Ball Magic/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +342,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7B59Q46R46;
 				INFOPLIST_FILE = "8 Ball Magic/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
