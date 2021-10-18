@@ -19,7 +19,20 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        performRequest(URLString: requestURL)
+   //     performRequest(URLString: requestURL)
+    }
+    
+    //MARK: - Handlers of motion
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == UIEvent.EventSubtype.motionShake {
+            answerLable.text = ""
+        }
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == UIEvent.EventSubtype.motionShake {
+            performRequest(URLString: requestURL)
+        }
     }
     
     //MARK: - Perform request
