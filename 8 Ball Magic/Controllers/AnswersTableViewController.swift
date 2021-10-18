@@ -88,9 +88,26 @@ class AnswersTableViewController: UITableViewController {
     }
     */
     
-    
+    //MARK: - Add answer Button
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        
+        let alert = UIAlertController(title: "Add new answer", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add", style: .default) { [weak alert, weak self] (action) in
+            
+            guard let self = self else { return }
+            guard let textFieldText = alert?.textFields?.first?.text else { return }
+            
+            self.answers.append(textFieldText)
+            self.tableView.reloadData()
+        }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel) { (actionCancel) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(action)
+        alert.addAction(actionCancel)
+        alert.addTextField { (field) in
+            field.placeholder = "Add a new answer"
+        }
+        present(alert, animated: true, completion: nil)
         
     }
     
