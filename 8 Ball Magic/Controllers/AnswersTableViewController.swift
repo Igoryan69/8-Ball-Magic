@@ -13,8 +13,17 @@ class AnswersTableViewController: UITableViewController {
     var answers: [String] = [""]
     
 
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        saveData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+    
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -109,6 +118,18 @@ class AnswersTableViewController: UITableViewController {
         }
         present(alert, animated: true, completion: nil)
         
+    }
+    
+    //MARK: - Save data to the memory
+    func saveData() {
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(self.answers)
+            try data.write(to: self.dataFilePath!)
+        } catch {
+            print("error to encode data \(error)")
+        }
     }
     
 
