@@ -18,11 +18,10 @@ class MainViewController: UIViewController {
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-   //     performRequest(URLString: requestURL)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
     }
-    
     //MARK: - Handlers of motion
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == UIEvent.EventSubtype.motionShake {
@@ -84,6 +83,19 @@ class MainViewController: UIViewController {
         }
     }
     
+    //MARK: - Load data from memory
+    func loadData() {
+        
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            do {
+                let decoder = PropertyListDecoder()
+                answersOffline = try decoder.decode([String].self, from: data)
+            }catch {
+               print(error)
+            }
+        }
+                
+    }
     
 
 
