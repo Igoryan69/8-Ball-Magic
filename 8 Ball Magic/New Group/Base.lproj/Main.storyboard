@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Magic 8 Ball-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="__Ball_Magic" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,7 +46,7 @@
                             <constraint firstItem="Qy6-8z-qOk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="te6-Kn-1DF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="KUJ-Kc-d4F">
+                    <navigationItem key="navigationItem" title="Magic 8 Ball" id="KUJ-Kc-d4F">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape" catalog="system" id="kBO-qz-IqJ">
                             <connections>
                                 <segue destination="ARj-aW-Eo2" kind="show" identifier="settings" id="Q4F-2g-YGI"/>
@@ -61,7 +61,7 @@
             </objects>
             <point key="canvasLocation" x="755.07246376811599" y="88.392857142857139"/>
         </scene>
-        <!--Answers Table View Controller-->
+        <!--Answers-->
         <scene sceneID="rJn-B0-AOl">
             <objects>
                 <tableViewController id="ARj-aW-Eo2" customClass="AnswersTableViewController" customModule="__Ball_Magic" customModuleProvider="target" sceneMemberID="viewController">
@@ -84,7 +84,7 @@
                             <outlet property="delegate" destination="ARj-aW-Eo2" id="F8M-N4-iFt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="GAx-hJ-4tk">
+                    <navigationItem key="navigationItem" title="Answers" id="GAx-hJ-4tk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="iha-Ff-TgL">
                             <connections>
                                 <action selector="addButtonPressed:" destination="ARj-aW-Eo2" id="9IL-SD-YDp"/>

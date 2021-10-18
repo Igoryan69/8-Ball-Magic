@@ -8,15 +8,12 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
     @IBOutlet weak var answerLable: UILabel!
     
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("answers.plist")
     var answersOffline = ["Yes", "No", "Try again"]
     let requestURL = "https://8ball.delegator.com/magic/JSON/myQuestion"
-    
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -37,7 +34,6 @@ class MainViewController: UIViewController {
     
     //MARK: - Perform request
     func performRequest(URLString: String) {
-    
         if let url = URL(string: URLString) {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) {[weak self] (data, response, error) in
@@ -59,16 +55,10 @@ class MainViewController: UIViewController {
     //MARK: - Parse data from server
     func parseJSON(receivedData: Data) {
         let decoder = JSONDecoder()
-   //     guard let decodedData = try? decoder.decode(ReceivedData.self, from: receivedData) else { return }
-        do {
-            let decodedData = try decoder.decode(ReceivedData.self, from: receivedData)
-            let answer = decodedData.magic.answer
-    
-            DispatchQueue.main.async {
-                self.answerLable.text = answer
-            }
-        } catch  {
-          print(error)
+        guard let decodedData = try? decoder.decode(ReceivedData.self, from: receivedData) else { return }
+        let answer = decodedData.magic.answer
+        DispatchQueue.main.async {
+            self.answerLable.text = answer
         }
     }
     
@@ -85,19 +75,14 @@ class MainViewController: UIViewController {
     
     //MARK: - Load data from memory
     func loadData() {
-        
         if let data = try? Data(contentsOf: dataFilePath!) {
             do {
                 let decoder = PropertyListDecoder()
                 answersOffline = try decoder.decode([String].self, from: data)
             }catch {
-               print(error)
+                print(error)
             }
         }
-                
     }
-    
-
-
 }
 
