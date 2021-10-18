@@ -11,6 +11,7 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var answerLable: UILabel!
     
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("answers.plist")
     var answersOffline = ["Yes", "No", "Try again"]
     let requestURL = "https://8ball.delegator.com/magic/JSON/myQuestion"
     
@@ -71,6 +72,18 @@ class MainViewController: UIViewController {
           print(error)
         }
     }
+    
+    //MARK: - Prepare for segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "settings" {
+            let destinationVC = segue.destination as! AnswersTableViewController
+            
+            destinationVC.answers = answersOffline
+            destinationVC.dataFilePath = dataFilePath
+            
+        }
+    }
+    
     
 
 

@@ -70,7 +70,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XA0-f1-NWH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="answersCell" id="XA0-f1-NWH">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XA0-f1-NWH" id="hRw-6g-3UN">
@@ -84,7 +84,13 @@
                             <outlet property="delegate" destination="ARj-aW-Eo2" id="F8M-N4-iFt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="GAx-hJ-4tk"/>
+                    <navigationItem key="navigationItem" id="GAx-hJ-4tk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iha-Ff-TgL">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="ARj-aW-Eo2" id="9IL-SD-YDp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWX-Tt-CSx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
